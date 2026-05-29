@@ -1,0 +1,83 @@
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    background: var(--avatar-bg);
+    color: var(--avatar-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.role-select {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--role-border);
+    background: var(--role-bg);
+    color: var(--role-text);
+    font-weight: 500;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
+
+.role-select:hover {
+    background: var(--role-hover);
+}
+
+
+.user-avatar {
+    width: 50px;       
+    height: 50px;
+    border-radius: 50%; 
+    overflow: hidden;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--fallback-bg); 
+}
+
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    display: block;
+}
+.assets-header h3 .fa-users {
+    margin-right: 20px;
+}
+
+.role-select {
+    min-width: 120px;
+    padding: 10px 14px;
+    border-radius: 18px;
+    border: 1px solid var(--role-border);
+    background: var(--role-bg);
+    color: var(--role-text);
+    font-weight: 700;
+    text-align: center;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.role-select:focus {
+    outline: none;
+    border-color: rgba(6, 182, 212, 0.42);
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.12);
+}
+
+.user-avatar {
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+html.dark-mode .role-select {
+    box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.04);
+}
+
+@media (max-width: 640px) {
+    .role-select {
+        width: min(100%, 220px);
+    }
+}

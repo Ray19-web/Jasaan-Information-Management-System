@@ -1,0 +1,457 @@
+.jt-hero-carousel {
+    position: relative;
+    min-height: 620px;
+    height: min(100svh, 920px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: #000;
+    padding: clamp(88px, 12vh, 120px) 0 56px;
+}
+
+
+.jt-hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.jt-hero-slide.jt-hero-active {
+    opacity: 1;
+    animation: jt-hero-zoom 12s ease-in-out forwards;
+}
+
+@keyframes jt-hero-zoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+
+.jt-hero-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 30%,
+    rgba(255, 255, 255, 0.6) 60%,
+    transparent 100%
+  );
+}
+
+
+.jt-hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: clamp(20px, 8vw, 10vw);
+    margin-right: clamp(20px, 6vw, 80px);
+    max-width: min(540px, calc(100vw - 120px));
+    margin-bottom: clamp(36px, 9vh, 100px);
+}
+
+.jt-hero-badge {
+    border: 1px solid #00a9c6;
+    color: #00a9c6;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+#jt-hero-title {
+    font-size: clamp(3rem, 6vw, 4.6rem);
+    font-weight: 900;
+    margin: 0 0 0.25em 0;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+.jt-hero-blue {
+    color: #00a9c6;
+}
+
+
+.jt-hero-typing {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #00a9c6;
+    animation: jt-hero-typing 4s steps(60, end), jt-hero-blink .7s infinite;
+    margin-bottom: 2rem;
+    max-width: 32ch;
+    font-size: clamp(0.98rem, 1.6vw, 1.1rem);
+}
+
+@keyframes jt-hero-typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes jt-hero-blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+
+.jt-hero-btn {
+    padding: 10px 25px;
+    border-radius: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.jt-hero-btn-primary {
+    background: #00a9c6;
+    color: white;
+    border: none;
+}
+
+.jt-hero-btn-outline {
+    border: 2px solid #00a9c6;
+    background: transparent;
+}
+
+
+.jt-hero-dots {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+.jt-hero-dot {
+    width: 10px;
+    height: 52px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.422);
+    margin: 10px 0;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.jt-hero-dot.jt-hero-active {
+    background: #00a8c6b2;
+    opacity: 1;
+}
+
+.jt-hero-btn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.jt-hero-btn-primary {
+    background: #00a9c6;
+    color: #fff;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 169, 198, 0.3);
+}
+
+.jt-hero-btn-primary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 169, 198, 0.5);
+    background: #0090aa;
+}
+
+
+.jt-hero-btn-outline {
+    border: 2px solid #00a9c6;
+    background: transparent;
+    color: #111;
+}
+
+.jt-hero-btn-outline:hover {
+    background: #00a9c6;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 169, 198, 0.4);
+}
+
+.jt-hero-btn.btn-clicked {
+    animation: btnPulse 0.3s ease-out;
+}
+
+@keyframes btnPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.jt-hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(0, 169, 198, 0.5);
+    color: #00a9c6;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+
+.jt-hero-badge:hover {
+    background: #00a9c6;
+    color: #fff;
+    box-shadow: 0 5px 20px rgba(0, 169, 198, 0.4);
+    transform: translateY(-2px);
+}
+
+.jt-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.jt-hero-actions .jt-hero-btn {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+html.dark-mode .jt-hero-slide::before {
+    background: linear-gradient(
+        to right,
+        rgba(2, 6, 23, 0.92) 22%,
+        rgba(2, 6, 23, 0.72) 55%,
+        rgba(2, 6, 23, 0.18) 100%
+    );
+}
+
+html.dark-mode .jt-hero-badge {
+    color: #7dd3fc;
+    border-color: rgba(125, 211, 252, 0.35);
+    background: rgba(15, 23, 42, 0.5);
+}
+
+html.dark-mode .jt-hero-badge:hover {
+    background: #0284c7;
+    color: #eff6ff;
+    box-shadow: 0 10px 28px rgba(14, 165, 233, 0.28);
+}
+
+html.dark-mode #jt-hero-title,
+html.dark-mode .jt-hero-typing {
+    color: #f8fafc;
+}
+
+html.dark-mode .jt-hero-btn-outline {
+    color: #e2e8f0;
+    border-color: rgba(125, 211, 252, 0.7);
+    background: rgba(15, 23, 42, 0.22);
+}
+
+html.dark-mode .jt-hero-btn-outline:hover {
+    background: #0284c7;
+    color: #eff6ff;
+}
+
+html.dark-mode .jt-hero-dot {
+    background: rgba(148, 163, 184, 0.3);
+}
+
+html.dark-mode .jt-hero-dot.jt-hero-active {
+    background: rgba(56, 189, 248, 0.88);
+}
+
+@media (max-width: 1024px) {
+    .jt-hero-carousel {
+        min-height: 560px;
+    }
+
+    .jt-hero-content {
+        max-width: min(560px, calc(100vw - 96px));
+        margin-bottom: 48px;
+    }
+
+    .jt-hero-dots {
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jt-hero-carousel {
+        min-height: 540px;
+        height: auto;
+        align-items: flex-end;
+        padding: 120px 0 88px;
+    }
+
+    .jt-hero-slide::before {
+        background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.92) 10%,
+            rgba(255, 255, 255, 0.72) 48%,
+            rgba(255, 255, 255, 0.16) 100%
+        );
+    }
+
+    .jt-hero-content {
+        max-width: min(100%, calc(100vw - 40px));
+        margin: 0 20px;
+    }
+
+    .jt-hero-typing {
+        white-space: normal;
+        animation: none;
+        border-right: none;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .jt-hero-actions {
+        width: 100%;
+    }
+
+    .jt-hero-actions .jt-hero-btn {
+        flex: 1 1 220px;
+    }
+
+    .jt-hero-dots {
+        top: auto;
+        bottom: 28px;
+        left: 20px;
+        right: 20px;
+        transform: none;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .jt-hero-dot {
+        width: 42px;
+        height: 8px;
+        margin: 0;
+    }
+
+    html.dark-mode .jt-hero-slide::before {
+        background: linear-gradient(
+            to top,
+            rgba(2, 6, 23, 0.94) 12%,
+            rgba(2, 6, 23, 0.78) 52%,
+            rgba(2, 6, 23, 0.18) 100%
+        );
+    }
+}
+
+@media (max-width: 480px) {
+    .jt-hero-carousel {
+        min-height: 500px;
+        padding: 108px 0 82px;
+    }
+
+    #jt-hero-title {
+        font-size: clamp(2.4rem, 11vw, 3.3rem);
+    }
+
+    .jt-hero-badge {
+        font-size: 0.68rem;
+        letter-spacing: 1.2px;
+    }
+
+    .jt-hero-actions .jt-hero-btn {
+        width: 100%;
+        flex-basis: 100%;
+    }
+}
+
+
+.jt-hero-slide::before {
+    background: linear-gradient(
+        to right,
+        var(--hero-fade) 20%,
+        var(--hero-fade-mid) 48%,
+        var(--hero-fade-soft) 74%,
+        transparent 100%
+    );
+}
+
+#jt-hero-title {
+    color: var(--text-main);
+}
+
+.jt-hero-blue {
+    color: var(--primary-dark);
+}
+
+.jt-hero-typing {
+    color: var(--gray);
+    border-right-color: var(--primary);
+}
+
+.jt-hero-badge {
+    border-color: rgba(15, 119, 136, 0.32);
+    color: var(--primary-dark);
+    background: rgba(255, 248, 241, 0.38);
+    box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
+}
+
+.jt-hero-btn-primary {
+    background: var(--gradient-button);
+    box-shadow: 0 16px 30px rgba(15, 154, 173, 0.22);
+}
+
+.jt-hero-btn-primary:hover {
+    background: linear-gradient(135deg, #0d7c8d, #325f79);
+    box-shadow: 0 20px 34px rgba(15, 154, 173, 0.28);
+}
+
+.jt-hero-btn-outline {
+    border-color: rgba(15, 119, 136, 0.48);
+    color: var(--text-main);
+    background: rgba(255, 248, 241, 0.14);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.jt-hero-btn-outline:hover {
+    background: rgba(15, 154, 173, 0.92);
+    color: #fff;
+}
+
+.jt-hero-dot {
+    background: rgba(255, 248, 241, 0.42);
+}
+
+.jt-hero-dot.jt-hero-active {
+    background: rgba(15, 154, 173, 0.8);
+}
+
+@media (max-width: 768px) {
+    .jt-hero-slide::before {
+        background: linear-gradient(
+            to top,
+            var(--hero-fade) 12%,
+            var(--hero-fade-mid) 48%,
+            var(--hero-fade-soft) 100%
+        );
+    }
+}
